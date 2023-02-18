@@ -42,9 +42,15 @@ Deploy the Docker image using Fargate in a ECS cluster.
 
 ![EC2 Autoscaling Group](schema_images/ecs.png)
 
+## Important instructions
+
+1. Mofidy **variables.auto.tfvar** file and set the variables values as needed, considering that ``infra_type`` variable can bet set to "ec2_autoscaling_group" or to "ecs_cluster". 
+2. Depending on the ``infra_type``, terraform will create first the infrastructure for the aplication and then the deployment pipeline (Code pipeline + Code build + Code deploy).
+
 ## Posible improvements
 
 * Execute docker commands using the "user_data" parameter during the instances creation.
 * Add commands using Docker Deploy on Code pipeline so Docker update the running containers when a new deployment is done.
 * Add a database so the app share the information across all the instances in all the availability zones.
 * Add alerts using cloudwatch and autoscaling groups to scale the containe number on ECS.
+* Add bucket as backed to save the terraform state
