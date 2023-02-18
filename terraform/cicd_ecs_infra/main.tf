@@ -31,7 +31,7 @@ resource "aws_codebuild_project" "mytest_codebuild_ecs" {
 
   source {
     type      = "GITHUB"
-    location  = "https://github.com/vachobarrera/test-aws.git"
+    location  = "https://github.com/vachobarrera/aws-cicd-test.git"
     buildspec = file("./buildspec.yml")
   }
 }
