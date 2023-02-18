@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 8
+      python: 3.7
+  pre_build:
+    commands:
+       - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/k9l5w5o5
+       - apt install sqlite
+  build:  
+    commands:
+       - docker build --tag timeoff:latest .
+       - docker push public.ecr.aws/k9l5w5o5/timeoff:latest
