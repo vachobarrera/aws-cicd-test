@@ -59,7 +59,7 @@ EOF
 }
 
 resource "aws_iam_policy" "mytest_codebuild_policy" {
-  name        = "mytest_codebuild_policy"
+  name        = "mytest_codebuild_polic2"
   path        = "/"
   description = "Codebuild policy"
   policy      = data.aws_iam_policy_document.mytest_codedeploy_policies.json
@@ -97,7 +97,7 @@ resource "aws_iam_role" "mytest_codepipeline_role" {
 
 
 resource "aws_iam_policy" "mytest_codepipeline_policy" {
-  name   = "mytest_codepipeline_policy"
+  name   = "mytest_codepipeline_policy2"
   path   = "/"
   policy = data.aws_iam_policy_document.mytest_codedeploy_policies.json
 }

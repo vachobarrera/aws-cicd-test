@@ -16,7 +16,7 @@ resource "aws_launch_template" "mytest_launch_template" {
   image_id = "ami-0557a15b87f6559cf"
   instance_type = var.instance_type
   key_name = "${var.project_name}_ssh_key"
-  user_data = "${base64encode(file("preparevm.sh"))}"
+  user_data = "${base64encode(file("./preparevm.sh"))}"
   #vpc_security_group_ids = [aws_security_group.mytest_security_group.id]
   tags = {
     Name = "${var.project_name}_launch_template"
